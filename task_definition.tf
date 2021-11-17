@@ -41,6 +41,12 @@ resource "aws_ecs_task_definition" "btc-task" {
           hostPort      = 18444
         }
       ]
+      "mountPoints": [
+          {
+              "containerPath": "/home/bitcoin/.bitcoin",
+              "sourceVolume": "efs-btc"
+          }
+      ],
       "logConfiguration" : {
         "logDriver" : "awslogs",
         "options" : {
